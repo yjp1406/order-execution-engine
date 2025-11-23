@@ -1,0 +1,76 @@
+{
+  "info": {
+    "_postman_id": "54487324-87af-4a11-b1cc-7030832f1d77",
+    "name": "Order Execution Engine",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "order-engine"
+  },
+  "item": [
+    {
+      "name": "Execute Order (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tokenIn\": \"SOL\",\n  \"tokenOut\": \"USDC\",\n  \"amount\": 1.2,\n  \"clientOrderId\": \"test-client-001\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/orders/execute",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "orders", "execute"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "WebSocket: Order Updates",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Postman WebSocket test handler",
+              "console.log('Connected to WebSocket…');"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "url": {
+          "raw": "ws://{{wsUrl}}/api/orders/execute/ws?orderId={{orderId}}",
+          "host": ["{{wsUrl}}"],
+          "path": ["api", "orders", "execute", "ws"],
+          "query": [
+            {
+              "key": "orderId",
+              "value": "{{orderId}}"
+            }
+          ],
+          "protocol": "ws"
+        }
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "wsUrl",
+      "value": "localhost:3000"
+    },
+    {
+      "key": "orderId",
+      "value": ""
+    }
+  ]
+}
