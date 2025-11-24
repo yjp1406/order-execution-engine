@@ -1,3 +1,9 @@
+import dotenv from "dotenv";
+
+// Only load .env locally
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 export const config = {
   port: Number(process.env.PORT) || 3000,
   redis: {
