@@ -1,6 +1,12 @@
 export const config = {
   port: Number(process.env.PORT) || 3000,
-  redisUrl: process.env.REDIS_URL || "redis://localhost:6379",
+  redis: {
+    host: process.env.REDIS_HOST!,
+    port: Number(process.env.REDIS_PORT!),
+    username: process.env.REDIS_USERNAME!,
+    password: process.env.REDIS_PASSWORD!,
+    tls: process.env.REDIS_TLS === "true",
+  },
   pg: {
     host: process.env.PG_HOST || "localhost",
     port: Number(process.env.PG_PORT) || 5432,
