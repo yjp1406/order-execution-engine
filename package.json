@@ -9,6 +9,15 @@
     "start": "node dist/index.js",
     "test": "jest"
   },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.test.json"
+      }
+    }
+  },
   "dependencies": {
     "@fastify/websocket": "^8.2.1",
     "bullmq": "^4.7.0",
