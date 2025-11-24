@@ -116,4 +116,7 @@ It receives swap orders, queues them, finds the best route (Raydium or Meteora),
 # Hosted URL for Backend
 - https://dashboard.render.com/
 - use https://dashboard.render.com/api/order/execute
-- use ws://order-execution-engine-obfd.onrender.com/api/orders/execute/ws?orderId=<orderId>
+- use ws://order-execution-engine-obfd.onrender.com/api/orders/execute/ws?orderId=
+
+# Postman Documentation
+- https://documenter.getpostman.com/view/32266708/2sB3dHWZ6F
