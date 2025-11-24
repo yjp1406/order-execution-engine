@@ -9,7 +9,7 @@ export const ActiveOrders = {
       `active_order:${orderId}`,
       JSON.stringify(data),
       "EX",
-      300 // auto-remove after 5 minutes
+      300
     );
   },
 

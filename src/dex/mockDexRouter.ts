@@ -1,4 +1,3 @@
-// src/dex/mockDexRouter.ts
 import { config } from "../config";
 
 const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
@@ -25,7 +24,7 @@ export class MockDexRouter {
   ): Promise<DexQuote> {
     await sleep(200);
     const price =
-      this.basePrice * (0.98 + Math.random() * 0.04); // 0.98 - 1.02
+      this.basePrice * (0.98 + Math.random() * 0.04);
     return { dex: "raydium", price, fee: 0.003 };
   }
 
@@ -36,7 +35,7 @@ export class MockDexRouter {
   ): Promise<DexQuote> {
     await sleep(200);
     const price =
-      this.basePrice * (0.97 + Math.random() * 0.05); // 0.97 - 1.02
+      this.basePrice * (0.97 + Math.random() * 0.05);
     return { dex: "meteora", price, fee: 0.002 };
   }
 
@@ -50,7 +49,6 @@ export class MockDexRouter {
       this.getMeteoraQuote(tokenIn, tokenOut, amount),
     ]);
 
-    // For market buy: choose lower price; for sell you might choose higher
     const best = r.price <= m.price ? r : m;
     console.log(
       `[DEX ROUTER] Raydium=${r.price.toFixed(
@@ -67,8 +65,7 @@ export class MockDexRouter {
     amount: number,
     expectedPrice: number
   ): Promise<DexExecutionResult> {
-    await sleep(2000 + Math.random() * 1000); // 2–3 seconds
-    // Simulate small deviation from expected
+    await sleep(2000 + Math.random() * 1000);
     const executedPrice = expectedPrice * (0.995 + Math.random() * 0.01);
     const txHash = this.generateMockTxHash();
     return { dex, txHash, executedPrice };

@@ -1,6 +1,6 @@
 import { buildApp } from "./app";
 import { config } from "./config";
-import "./queue/orderProcessor";; // ensure worker starts
+import "./queue/orderProcessor";
 
 const app = buildApp();
 

@@ -10,8 +10,8 @@ export const config = {
   },
   queue: {
     name: "order-queue",
-    concurrency: 10, // up to 10 concurrent orders
+    concurrency: 10,
     maxRetries: 3,
   },
-  mockBasePrice: 10, // just a mock number
+  mockBasePrice: 10,
 };

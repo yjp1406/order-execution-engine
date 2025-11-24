@@ -78,12 +78,10 @@ app.get(
       return;
     }
 
-    // Remove client on disconnect
     conn.socket.on("close", () => {
       wsManager.removeClient(orderId, client);
     });
 
-    // 1️⃣ LOAD CURRENT STATUS FROM DB
     const currentOrder = await repo.findById(orderId);
 
     if (!currentOrder) {
