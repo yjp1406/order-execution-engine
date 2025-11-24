@@ -88,7 +88,7 @@ It receives swap orders, queues them, finds the best route (Raydium or Meteora),
 - Redis (queue + active_order cache)
 - PostgreSQL (persistent order history)
 - Jest (testing)
-- Docker Compose (local infra
+- Docker Compose (local infra)
 
 # ⚙️ Local Setup
 # 1️⃣ Clone the repo
@@ -109,3 +109,11 @@ It receives swap orders, queues them, finds the best route (Raydium or Meteora),
 # 🧪 Running Tests
 # Run Jest:
 - npm test
+
+# Youtube Video link
+- https://youtu.be/eTv3-ZGF7ps
+
+# Hosted URL for Backend
+- https://dashboard.render.com/
+- use https://dashboard.render.com/api/order/execute
+- use ws://order-execution-engine-obfd.onrender.com/api/orders/execute/ws?orderId=<orderId>
