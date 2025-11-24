@@ -19,6 +19,7 @@ export const config = {
     user: process.env.PG_USER || "postgres",
     password: process.env.PG_PASSWORD || "postgres",
     database: process.env.PG_DB || "order_engine",
+    ssl: process.env.PG_SSL === "true",
   },
   queue: {
     name: "order-queue",
